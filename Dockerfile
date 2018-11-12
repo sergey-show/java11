@@ -4,7 +4,7 @@ MAINTAINER Sergey Chugay <sergey@chugay.ru>
 RUN yum update -y && \
     yum install wget -y
 
-RUN RUN wget --no-check-certificate -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/11+28/55eed80b163941c8885ad9298e6d786a/jdk-11_linux-x64_bin.tar.gz
+RUN RUN wget --no-check-certificate -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/11.0.1+13/90cf5d8f270a4347a95050320eef3fb7/jdk-11.0.1_linux-x64_bin.tar.gz
 
 ENV JAVA_PKG=jdk-11_linux-x64_bin.tar.gz \
     JAVA_HOME=/usr/java/default

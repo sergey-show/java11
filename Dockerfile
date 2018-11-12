@@ -1,10 +1,8 @@
-FROM alpine
+FROM centos7
 MAINTAINER Sergey Chugay <sergey@chugay.ru>
 
-RUN apk update \
-    apk upgrade \
-    apk add bash \
-    apk add wget
+RUN yum update -y && \
+    yum install wget -y
 
 RUN RUN wget --no-check-certificate -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/11+28/55eed80b163941c8885ad9298e6d786a/jdk-11_linux-x64_bin.tar.gz
 

@@ -5,11 +5,17 @@ RUN apk update \
     apk upgrade \
     apk add wget
 
-RUN wget -q --no-check-certificate -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/11.0.1+13/90cf5d8f270a4347a95050320eef3fb7/jdk-11.0.1_linux-x64_bin.tar.gz
-
 ENV JAVA_HOME=/usr/java/default
-RUN tar -xf jdk-11.0.1_linux-x64_bin.tar.gz --directory /usr/java
-RUN export JAVA_DIR=$(ls -1 -d /usr/java/*) && \
+    JAVA_WORK=/usr/java
+    JAVA_PKG="jdk-11.0.1_linux-x64_bin.tar.gz"
+
+RUN wget -q --no-check-certificate -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/11.0.1+13/90cf5d8f270a4347a95050320eef3fb7/jdk-11.0.1_linux-x64_bin.tar.gz && \
+    mkdir -p $JAVA_WORK && \
+    mv $JAVA_PKG $JAVA_WORK && \
+    cd $JAVA_WORK && \
+    tar -xf $JAVA_PKG && \
+    rm -f *.tar.gz && \
+    export JAVA_DIR=$(ls -1 -d /usr/java/*) && \
     ln -s $JAVA_DIR /usr/java/latest && \
     ln -s $JAVA_DIR /usr/java/default && \
     alternatives --install /usr/bin/java java $JAVA_DIR/bin/java 20000 && \

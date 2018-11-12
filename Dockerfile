@@ -1,4 +1,4 @@
-FROM centos7
+FROM centos:7
 MAINTAINER Sergey Chugay <sergey@chugay.ru>
 
 RUN yum update -y && \

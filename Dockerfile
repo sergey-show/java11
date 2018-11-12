@@ -1,7 +1,7 @@
 FROM alpine
 MAINTAINER Sergey Chugay <sergey@chugay.ru>
 
-ENV JAVA_PKG=http://download.oracle.com/otn-pub/java/jdk/11+28/55eed80b163941c8885ad9298e6d786a/jdk-11_linux-x64_bin.tar.gz
+ENV JAVA_PKG=http://download.oracle.com/otn-pub/java/jdk/11+28/55eed80b163941c8885ad9298e6d786a/jdk-11_linux-x64_bin.tar.gz \
     JAVA_HOME=/usr/java/default
 ADD wget --no-check-certificate -c --header "Cookie: oraclelicense=accept-securebackup-cookie" $JAVA_PKG /usr/java/
 

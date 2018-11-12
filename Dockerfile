@@ -8,7 +8,7 @@ RUN apk update \
 RUN wget -q --no-check-certificate -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/11.0.1+13/90cf5d8f270a4347a95050320eef3fb7/jdk-11.0.1_linux-x64_bin.tar.gz
 
 ENV JAVA_HOME=/usr/java/default
-RUN tar -xvf jdk-11.0.1_linux-x64_bin.tar.gz -C /usr/java
+RUN tar -xf jdk-11.0.1_linux-x64_bin.tar.gz -C /usr/java
 RUN export JAVA_DIR=$(ls -1 -d /usr/java/*) && \
     ln -s $JAVA_DIR /usr/java/latest && \
     ln -s $JAVA_DIR /usr/java/default && \

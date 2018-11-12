@@ -10,8 +10,8 @@ RUN wget -q --no-check-certificate -c --header "Cookie: oraclelicense=accept-sec
 ENV JAVA_PKG=jdk-11.0.1_linux-x64_bin.tar.gz \
     JAVA_HOME=/usr/java/default
 
-ADD $JAVA_PKG /usr/java/
-RUN export JAVA_DIR=$(ls -1 -d /usr/java/*) && \
+RUN tar -xvf $JAVA_PKG -C /usr/java/ && \
+    export JAVA_DIR=$(ls -1 -d /usr/java/*) && \
     ln -s $JAVA_DIR /usr/java/latest && \
     ln -s $JAVA_DIR /usr/java/default && \
     alternatives --install /usr/bin/java java $JAVA_DIR/bin/java 20000 && \

@@ -14,7 +14,3 @@ RUN mkdir -p /usr/java && \
     export JAVA_DIR=$(ls -1 -d /usr/java/*) && \
     ln -s $JAVA_DIR /usr/java/latest && \
     ln -s $JAVA_DIR /usr/java/default
-RUN alternatives --install /usr/bin/java java $JAVA_DIR/bin/java 20000
-RUN alternatives --install /usr/bin/javac javac $JAVA_DIR/bin/javac 20000
-RUN alternatives --install /usr/bin/jar jar $JAVA_DIR/bin/jar 20000
-

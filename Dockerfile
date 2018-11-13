@@ -3,6 +3,7 @@ MAINTAINER Sergey Chugay <sergey@chugay.ru>
 
 RUN apk update \
     apk upgrade \
+    apk add alternatives \
     apk add wget
     
 ENV JAVA_HOME=/usr/java/default \

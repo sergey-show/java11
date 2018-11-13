@@ -4,7 +4,7 @@ MAINTAINER Sergey Chugay <sergey@chugay.ru>
 RUN apk update \
     apk upgrade \
     apk add wget
-
+    
 ENV JAVA_HOME=/usr/java/default \
     JAVA_WORK=/usr/java \
     JAVA_PKG="jdk-11.0.1_linux-x64_bin.tar.gz"

@@ -1,5 +1,5 @@
 FROM alpine
-LABEL MAINTAINER Sergey Chugay <sergey@chugay.ru>
+MAINTAINER Sergey Chugay <sergey@chugay.ru>
 
 RUN apk update \
     apk upgrade \
@@ -14,7 +14,7 @@ RUN mkdir -p /usr/java && \
     export JAVA_DIR=$(ls -1 -d /usr/java/*) && \
     ln -s $JAVA_DIR /usr/java/latest && \
     ln -s $JAVA_DIR /usr/java/default && \
-    alternatives --install /usr/bin/java java $JAVA_DIR/bin/java 20000 && \
-    alternatives --install /usr/bin/javac javac $JAVA_DIR/bin/javac 20000 && \
-    alternatives --install /usr/bin/jar jar $JAVA_DIR/bin/jar 20000
+RUN alternatives --install /usr/bin/java java $JAVA_DIR/bin/java 20000 && \
+RUN alternatives --install /usr/bin/javac javac $JAVA_DIR/bin/javac 20000 && \
+RUN alternatives --install /usr/bin/jar jar $JAVA_DIR/bin/jar 20000
 

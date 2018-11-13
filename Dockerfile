@@ -13,8 +13,8 @@ RUN mkdir -p /usr/java && \
     wget -q --no-check-certificate -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/11.0.1+13/90cf5d8f270a4347a95050320eef3fb7/jdk-11.0.1_linux-x64_bin.tar.gz | tar -xz && \
     export JAVA_DIR=$(ls -1 -d /usr/java/*) && \
     ln -s $JAVA_DIR /usr/java/latest && \
-    ln -s $JAVA_DIR /usr/java/default && \
-RUN alternatives --install /usr/bin/java java $JAVA_DIR/bin/java 20000 && \
-RUN alternatives --install /usr/bin/javac javac $JAVA_DIR/bin/javac 20000 && \
+    ln -s $JAVA_DIR /usr/java/default
+RUN alternatives --install /usr/bin/java java $JAVA_DIR/bin/java 20000
+RUN alternatives --install /usr/bin/javac javac $JAVA_DIR/bin/javac 20000
 RUN alternatives --install /usr/bin/jar jar $JAVA_DIR/bin/jar 20000
 
